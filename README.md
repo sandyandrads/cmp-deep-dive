@@ -1,27 +1,72 @@
-# CmpDeepDive
+# Components & Templates — Deep Dive (Angular Study Project)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0-next.2.
+This repository contains a study project built while following the Udemy course:
 
-## Development server
+**Master Angular (formerly "Angular 2") – The Complete Guide**  
+https://www.udemy.com/course/the-complete-guide-to-angular-2/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🎬 Demo
+Add a GIF/screenshot here (optional):
 
-## Code scaffolding
+![Demo](./public/demo.gif)
+- or `src/assets/` if you prefer
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🎯 Purpose
+This project is a learning environment to practice **Angular components & templates** more deeply—focusing on **reusable UI patterns**, **content projection**, **lifecycle hooks**, and **modern Angular APIs**.
 
-## Build
+It is not meant for production. The goal is to experiment, break things, and learn.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ✅ Topics Covered
+### Components & Reusability
+- Building reusable components (shared UI building blocks)
+- Feature-based organization (`dashboard/`, `tickets/`, `shared/`)
+- Component selectors (element selectors and **attribute selectors**)
 
-## Running unit tests
+### Templates & Content Projection
+- `ng-content` basics
+- Multiple `ng-content` slots using `select` (CSS selectors)
+- Restricting projected content (e.g., allow only `input, textarea`)
+- Understanding template variables (`#var`) and what they reference
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Styling & Host Element
+- Component host element in the real DOM
+- Styling the host with `:host`
+- View encapsulation (`ViewEncapsulation.None`) and when to use it
+- Adding host attributes via:
+  - `host: { class: '...' }` (preferred)
+  - `@HostBinding()` (legacy / backward compatibility)
 
-## Running end-to-end tests
+### Component Lifecycle (Practical Usage)
+- Why initialization work belongs in `ngOnInit` (not constructors)
+- `OnInit` interface to prevent silent typos in lifecycle method names
+- Cleanup patterns:
+  - `ngOnDestroy` with `clearInterval`
+  - `DestroyRef.onDestroy()` (Angular 16+)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Template Access / Queries
+- `@ViewChild()` to access template elements (e.g., form reset)
+- `@ContentChild()` / `ContentChild()` to access projected content
+- When to use:
+  - `AfterViewInit` (ViewChild ready)
+  - `AfterContentInit` (ContentChild ready)
 
-## Further help
+### Modern Angular (v16+ / v17+ patterns)
+- Signals (`signal`, `WritableSignal`) in component state
+- `effect()` to react to signal changes in TypeScript
+- Cleanup inside effects via `onCleanup()`
+- (Optional/advanced) Render hooks:
+  - `afterNextRender` (Angular 16+)
+  - `afterRender` / **`afterEveryRender` (Angular 20+)**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🛠️ Tech Stack
+- **Angular**: 18.x
+- **TypeScript**
+- Angular CLI
+- npm
+
+## ▶️ Getting Started
+Install dependencies and run the dev server:
+
+```bash
+npm install
+npm start
